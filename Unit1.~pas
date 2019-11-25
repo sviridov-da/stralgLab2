@@ -229,7 +229,7 @@ begin
           InputCorrect:=false;
       end else if CurrentStr[CurrentSymbol] = '-' then begin
         if Workspace.TryPop(tmp1) and Workspace.TryPop(tmp2) then begin
-          Workspace.Push(tmp1-tmp2);
+          Workspace.Push(tmp2-tmp1);
           inc(CurrentSymbol);
         end else
           InputCorrect:=false;
@@ -241,7 +241,7 @@ begin
           InputCorrect:=false;
       end else if CurrentStr[CurrentSymbol] = '/' then begin
         if Workspace.TryPop(tmp1) and Workspace.TryPop(tmp2) then begin
-          Workspace.Push(tmp1/tmp2);
+          Workspace.Push(tmp2/tmp1);
           inc(CurrentSymbol);
         end else
           InputCorrect:=false;

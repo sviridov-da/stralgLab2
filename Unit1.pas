@@ -180,7 +180,6 @@ end;
 function GetNumber(var CurrentSymbol:integer; var CurrentStr:string):real;
 var AfterDot:boolean;
     Dec:integer;
-    minus:boolean;
 
 begin
   AfterDot:=false;
@@ -205,7 +204,6 @@ procedure TForm1.ButtonReultClick(Sender: TObject);
 var Workspace:TStack;
     CurrentStr:string;
     CurrentLength:integer;
-    result:real;
     CurrentSymbol:integer;
     tmp1, tmp2:real;
     InputCorrect:boolean;
@@ -254,7 +252,6 @@ begin
       end else begin
         InputCorrect:=false;
         EntryField.Text:=CurrentStr;
-        Exit;
       end;
    end;
    if (not Workspace.isEmpty) and InputCorrect then begin
