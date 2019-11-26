@@ -33,17 +33,14 @@ implementation
 
   constructor TStack.Create;
   begin
-    inherited Create;
     fCount:=0;
     fHead:=nil;
   end;
-
 
   destructor TStack.Destroy;
   begin
     while not isEmpty do
       Pop;
-    inherited Destroy;
   end;
 
   procedure TStack.Push(NewData: TDataType);

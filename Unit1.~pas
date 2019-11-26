@@ -146,6 +146,7 @@ end;
 
 procedure TForm1.ButtonSpaceClick(Sender: TObject);
 begin
+  if (Length(EntryField.Text) > 0) and (EntryField.Text[Length(EntryField.Text)] <> ' ') then
   EntryField.Text:= EntryField.Text + ' ';
 end;
 

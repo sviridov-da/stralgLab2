@@ -136,7 +136,7 @@ end;
 
 procedure TForm1.ButtonUnMinusClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ' ~ ';
+  EntryField.Text:= EntryField.Text + '~ ';
 end;
 
 procedure TForm1.ButtonDotClick(Sender: TObject);
