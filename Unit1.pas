@@ -4,33 +4,33 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, XPMan, StdCtrls, UStack;
+  Dialogs, XPMan, StdCtrls, UStack, ExtCtrls, Buttons;
 
 type
   TForm1 = class(TForm)
-    EntryField: TEdit;
-    ButtonDelete: TButton;
-    Button1: TButton;
-    XPManifest1: TXPManifest;
-    Button2: TButton;
-    Button3: TButton;
-    ButtonPlus: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
-    ButtonMinus: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    Button9: TButton;
-    ButtonMult: TButton;
-    ButtonDot: TButton;
-    Button0: TButton;
-    ButtonUnMinus: TButton;
-    ButtonDiv: TButton;
-    ButtonSpace: TButton;
-    ButtonClear: TButton;
-    ButtonReult: TButton;
     LabelError: TLabel;
+    Panel1: TPanel;
+    EntryField: TLabel;
+    Button1: TSpeedButton;
+    Button2: TSpeedButton;
+    Button3: TSpeedButton;
+    ButtonPlus: TSpeedButton;
+    Button4: TSpeedButton;
+    Button5: TSpeedButton;
+    Button6: TSpeedButton;
+    ButtonMinus: TSpeedButton;
+    Button7: TSpeedButton;
+    Button8: TSpeedButton;
+    Button9: TSpeedButton;
+    ButtonMult: TSpeedButton;
+    ButtonUnMinus: TSpeedButton;
+    Button0: TSpeedButton;
+    ButtonDot: TSpeedButton;
+    ButtonDiv: TSpeedButton;
+    ButtonResult: TSpeedButton;
+    ButtonSpace: TSpeedButton;
+    ButtonClear: TSpeedButton;
+    ButtonDelete: TSpeedButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -50,7 +50,12 @@ type
     procedure ButtonSpaceClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
     procedure ButtonDeleteClick(Sender: TObject);
-    procedure ButtonReultClick(Sender: TObject);
+    procedure ButtonResultClick(Sender: TObject);
+    procedure DeleteLast();
+    procedure GetResult(CurrentStr: string);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    //procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -64,103 +69,105 @@ implementation
 
 {$R *.dfm}
 
+
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
- EntryField.Text:= EntryField.Text + '1';
+ EntryField.Caption:= EntryField.Caption + '1';
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '2';
+  EntryField.Caption:= EntryField.Caption + '2';
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '3';
+  EntryField.Caption:= EntryField.Caption + '3';
 end;
 
 procedure TForm1.Button4Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '4';
+  EntryField.Caption:= EntryField.Caption + '4';
 end;
 
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '5';
+  EntryField.Caption:= EntryField.Caption + '5';
 end;
 
 procedure TForm1.Button6Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '6';
+  EntryField.Caption:= EntryField.Caption + '6';
 end;
 
 procedure TForm1.Button7Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '7';
+  EntryField.Caption:= EntryField.Caption + '7';
 end;
 
 procedure TForm1.Button8Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '8';
+  EntryField.Caption:= EntryField.Caption + '8';
 end;
 
 procedure TForm1.Button9Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '9';
+  EntryField.Caption:= EntryField.Caption + '9';
 end;
 
 procedure TForm1.Button0Click(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '0';
+  EntryField.Caption:= EntryField.Caption + '0';
 end;
 
 procedure TForm1.ButtonPlusClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ' + ';
+  EntryField.Caption:= EntryField.Caption + ' + ';
 end;
 
 procedure TForm1.ButtonMinusClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ' - ';
+  EntryField.Caption:= EntryField.Caption + ' - ';
 end;
 
 procedure TForm1.ButtonMultClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ' * ';
+  EntryField.Caption:= EntryField.Caption + ' * ';
 end;
 
 procedure TForm1.ButtonDivClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ' / ';
+  EntryField.Caption:= EntryField.Caption + ' / ';
 end;
 
 procedure TForm1.ButtonUnMinusClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + '~ ';
+  EntryField.Caption:= EntryField.Caption + '~ ';
 end;
 
 procedure TForm1.ButtonDotClick(Sender: TObject);
 begin
-  EntryField.Text:= EntryField.Text + ',';
+  EntryField.Caption:= EntryField.Caption + ',';
 end;
 
 procedure TForm1.ButtonSpaceClick(Sender: TObject);
 begin
-  if (Length(EntryField.Text) > 0) and (EntryField.Text[Length(EntryField.Text)] <> ' ') then
-  EntryField.Text:= EntryField.Text + ' ';
+  if (Length(EntryField.Caption) > 0) and (EntryField.Caption[Length(EntryField.Caption)] <> ' ') then
+  EntryField.Caption:= EntryField.Caption + ' ';
 end;
 
 procedure TForm1.ButtonClearClick(Sender: TObject);
 begin
-  EntryField.Text:= '';
+  EntryField.Caption:= '';
 end;
 
-procedure TForm1.ButtonDeleteClick(Sender: TObject);
+procedure TForm1.DeleteLast();
 const signs = ['+', '-', '*', '/', '~'];
 var CurrentStr:string;
     CurrentLength:integer;
 begin
-    CurrentStr:=EntryField.Text;
+    CurrentStr:=EntryField.Caption;
     CurrentLength:=Length(CurrentStr);
     if CurrentLength = 0 then
       exit;
@@ -175,7 +182,12 @@ begin
      else
         Delete(CurrentStr, CurrentLength, 1);
 
-     EntryField.Text:=CurrentStr;
+     EntryField.Caption:=CurrentStr;
+end;
+
+procedure TForm1.ButtonDeleteClick(Sender: TObject);
+begin
+  DeleteLast();
 end;
 
 function GetNumber(var CurrentSymbol:integer; var CurrentStr:string):real;
@@ -201,9 +213,8 @@ begin
   end;
 end;
 
-procedure TForm1.ButtonReultClick(Sender: TObject);
+procedure TForm1.GetResult(CurrentStr: string);
 var Workspace:TStack;
-    CurrentStr:string;
     CurrentLength:integer;
     CurrentSymbol:integer;
     tmp1, tmp2:real;
@@ -211,8 +222,7 @@ var Workspace:TStack;
 
 begin
    Workspace:= TStack.Create;
-   CurrentStr:=EntryField.Text;
-   CurrentLEngth:=LEngth(CurrentStr);
+   CurrentLEngth:=Length(CurrentStr);
    CurrentSymbol:=1;
    InputCorrect:=true;
    while (CurrentSymbol<=CurrentLength) and InputCorrect do begin
@@ -252,7 +262,7 @@ begin
           InputCorrect:=false;
       end else begin
         InputCorrect:=false;
-        EntryField.Text:=CurrentStr;
+        EntryField.Caption:=CurrentStr;
       end;
    end;
    if (not Workspace.isEmpty) and InputCorrect then begin
@@ -266,8 +276,51 @@ begin
    end
    else
       LabelError.Caption:='Incorrect';
-   EntryField.Text:=CurrentStr;
+   EntryField.Caption:=CurrentStr;
    Workspace.Destroy;
+end;
+
+
+procedure TForm1.ButtonResultClick(Sender: TObject);
+begin
+  GetResult(EntryField.Caption);
+end;
+
+
+
+
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case ord(Key) of
+    48, 96: EntryField.Caption:=EntryField.Caption + '0';
+    49, 97: EntryField.Caption:=EntryField.Caption + '1';
+    50, 98: EntryField.Caption:=EntryField.Caption + '2';
+    51, 99: EntryField.Caption:=EntryField.Caption + '3';
+    52, 100: EntryField.Caption:=EntryField.Caption + '4';
+    53, 101: EntryField.Caption:=EntryField.Caption + '5';
+    54, 102: EntryField.Caption:=EntryField.Caption + '6';
+    55, 103: EntryField.Caption:=EntryField.Caption + '7';
+    104: EntryField.Caption:=EntryField.Caption + '8';
+    56: begin
+          if GetKeyState(VK_SHIFT) < 0 then
+              EntryField.Caption:=EntryField.Caption + ' * '
+          else
+              EntryField.Caption:=EntryField.Caption + '8';
+        end;
+    57, 105: EntryField.Caption:=EntryField.Caption + '9';
+    13: GetResult(EntryField.Caption); //enter
+    8: DeleteLast();
+    32: EntryField.Caption:=EntryField.Caption + ' ';
+    187: EntryField.Caption:=EntryField.Caption + ' + ';
+    189: EntryField.Caption:=EntryField.Caption + ' - ';
+    191: EntryField.Caption:=EntryField.Caption + ' / ';
+    192: begin
+            if GetKeyState(VK_SHIFT) < 0 then
+              EntryField.Caption:=EntryField.Caption + '~'
+          end;
+
+    end;
 end;
 
 end.

@@ -1,16 +1,19 @@
 object Form1: TForm1
-  Left = 360
-  Top = 157
-  Width = 411
-  Height = 595
-  Caption = 'Form1'
+  Left = 524
+  Top = 138
+  BorderStyle = bsSingle
+  Caption = 'Lab2. Postfix'
+  ClientHeight = 557
+  ClientWidth = 395
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   object LabelError: TLabel
@@ -19,29 +22,7 @@ object Form1: TForm1
     Width = 3
     Height = 13
   end
-  object EntryField: TEdit
-    Left = 8
-    Top = 8
-    Width = 329
-    Height = 37
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -24
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 0
-  end
-  object ButtonDelete: TButton
-    Left = 344
-    Top = 8
-    Width = 41
-    Height = 41
-    Caption = '<<'
-    TabOrder = 1
-    OnClick = ButtonDeleteClick
-  end
-  object Button1: TButton
+  object Button1: TSpeedButton
     Left = 8
     Top = 72
     Width = 89
@@ -49,14 +30,13 @@ object Form1: TForm1
     Caption = '1'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
     OnClick = Button1Click
   end
-  object Button2: TButton
+  object Button2: TSpeedButton
     Left = 104
     Top = 72
     Width = 89
@@ -64,14 +44,13 @@ object Form1: TForm1
     Caption = '2'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 3
     OnClick = Button2Click
   end
-  object Button3: TButton
+  object Button3: TSpeedButton
     Left = 200
     Top = 72
     Width = 89
@@ -79,14 +58,13 @@ object Form1: TForm1
     Caption = '3'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 4
     OnClick = Button3Click
   end
-  object ButtonPlus: TButton
+  object ButtonPlus: TSpeedButton
     Left = 296
     Top = 72
     Width = 89
@@ -94,14 +72,13 @@ object Form1: TForm1
     Caption = '+'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 5
     OnClick = ButtonPlusClick
   end
-  object Button4: TButton
+  object Button4: TSpeedButton
     Left = 8
     Top = 168
     Width = 89
@@ -109,14 +86,13 @@ object Form1: TForm1
     Caption = '4'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 6
     OnClick = Button4Click
   end
-  object Button5: TButton
+  object Button5: TSpeedButton
     Left = 104
     Top = 168
     Width = 89
@@ -124,14 +100,13 @@ object Form1: TForm1
     Caption = '5'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 7
     OnClick = Button5Click
   end
-  object Button6: TButton
+  object Button6: TSpeedButton
     Left = 200
     Top = 168
     Width = 89
@@ -139,29 +114,27 @@ object Form1: TForm1
     Caption = '6'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 8
     OnClick = Button6Click
   end
-  object ButtonMinus: TButton
+  object ButtonMinus: TSpeedButton
     Left = 296
     Top = 168
     Width = 89
     Height = 89
-    Caption = '_'
+    Caption = '-'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 9
     OnClick = ButtonMinusClick
   end
-  object Button7: TButton
+  object Button7: TSpeedButton
     Left = 8
     Top = 264
     Width = 89
@@ -169,14 +142,13 @@ object Form1: TForm1
     Caption = '7'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 10
     OnClick = Button7Click
   end
-  object Button8: TButton
+  object Button8: TSpeedButton
     Left = 104
     Top = 264
     Width = 89
@@ -184,14 +156,13 @@ object Form1: TForm1
     Caption = '8'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
     OnClick = Button8Click
   end
-  object Button9: TButton
+  object Button9: TSpeedButton
     Left = 200
     Top = 264
     Width = 89
@@ -199,14 +170,13 @@ object Form1: TForm1
     Caption = '9'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 12
     OnClick = Button9Click
   end
-  object ButtonMult: TButton
+  object ButtonMult: TSpeedButton
     Left = 296
     Top = 264
     Width = 89
@@ -214,29 +184,27 @@ object Form1: TForm1
     Caption = '*'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 13
     OnClick = ButtonMultClick
   end
-  object ButtonDot: TButton
+  object ButtonUnMinus: TSpeedButton
     Left = 8
     Top = 360
     Width = 89
     Height = 89
-    Caption = ','
+    Caption = '~'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 14
-    OnClick = ButtonDotClick
+    OnClick = ButtonUnMinusClick
   end
-  object Button0: TButton
+  object Button0: TSpeedButton
     Left = 104
     Top = 360
     Width = 89
@@ -244,29 +212,27 @@ object Form1: TForm1
     Caption = '0'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 15
     OnClick = Button0Click
   end
-  object ButtonUnMinus: TButton
+  object ButtonDot: TSpeedButton
     Left = 200
     Top = 360
     Width = 89
     Height = 89
-    Caption = '~'
+    Caption = ','
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 16
-    OnClick = ButtonUnMinusClick
+    OnClick = ButtonDotClick
   end
-  object ButtonDiv: TButton
+  object ButtonDiv: TSpeedButton
     Left = 296
     Top = 360
     Width = 89
@@ -274,14 +240,27 @@ object Form1: TForm1
     Caption = '/'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 17
     OnClick = ButtonDivClick
   end
-  object ButtonSpace: TButton
+  object ButtonResult: TSpeedButton
+    Left = 200
+    Top = 456
+    Width = 185
+    Height = 89
+    Caption = '='
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -31
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    OnClick = ButtonResultClick
+  end
+  object ButtonSpace: TSpeedButton
     Left = 8
     Top = 456
     Width = 89
@@ -293,10 +272,9 @@ object Form1: TForm1
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 18
     OnClick = ButtonSpaceClick
   end
-  object ButtonClear: TButton
+  object ButtonClear: TSpeedButton
     Left = 104
     Top = 456
     Width = 89
@@ -308,26 +286,40 @@ object Form1: TForm1
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 19
     OnClick = ButtonClearClick
   end
-  object ButtonReult: TButton
-    Left = 200
-    Top = 456
-    Width = 185
-    Height = 89
-    Caption = '='
+  object ButtonDelete: TSpeedButton
+    Left = 336
+    Top = 8
+    Width = 57
+    Height = 41
+    Caption = '<<'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -31
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabOrder = 20
-    OnClick = ButtonReultClick
+    OnClick = ButtonDeleteClick
   end
-  object XPManifest1: TXPManifest
-    Left = 336
+  object Panel1: TPanel
+    Left = 8
     Top = 8
+    Width = 321
+    Height = 41
+    Color = clBtnHighlight
+    TabOrder = 0
+    object EntryField: TLabel
+      Left = 0
+      Top = 0
+      Width = 8
+      Height = 36
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -31
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
   end
 end
